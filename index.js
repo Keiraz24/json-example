@@ -24,11 +24,27 @@ for(let x=0; x<data.length; x++){
 let k= Math.floor(i/j);
 console.log(k);
 
-let a=0;
+
 const numberofbooks =new Array;
+const genres= new Array; 
+var index =0;
 for(let x=0; x<data.length; x++){
-    
+    if(genres.includes(data[x]["category"])){
+        index=genres.indexOf(data[x]["category"])
+         numberofbooks[index]++;
+         //to add to the same array slot at the same index
+    }else{
+        genres.push(data[x]["category"])
+        numberofbooks.push(1);
+    }
 }
+const index2= numberofbooks.indexOf(Math.max(...numberofbooks));
+const answer= genres[index2];
+
+console.log(answer);
+
+
+
 
 // fetch('./rawBooks.json')
 //     .then((response) => response.json())
