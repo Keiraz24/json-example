@@ -44,8 +44,35 @@ const answer= genres[index2];
 console.log(answer);
 
 
+const amountofbooks =new Array;
+const authors = new Array;
+var index3 =0;
+for(let x=0; x<data.length; x++){
+    if(authors.includes(data[x]["author"])){
+        index3=authors.indexOf(data[x]["author"])
+        amountofbooks[index3]++;
+    }else{
+        authors.push(data[x]["author"]);
+        amountofbooks.push(1);
+    }
+}
+
+const index4 = amountofbooks.indexOf(Math.max(...amountofbooks));
+const solution= authors[index4];
+console.log(solution)
 
 
+//percent of books in milton, sorry ik this is a bit boring but i am so ded 
+let z=0;
+for(let x=0; x<data.length; x++){
+    //console.log(data[x]["read?"]);
+    
+    if(data[x]["Milton"]==("Yes")){
+       k++
+    }
+    
+}
+console.log((k/data.length)*100)
 // fetch('./rawBooks.json')
 //     .then((response) => response.json())
 //     .then((json) => console.log(json));
